@@ -5,7 +5,18 @@
 var students = ["Omar", "Austine", "Dany", "Swathi", "Lesley", "Rukmini"];
 var group = ["Austine", "Dany", "Swathi", "Daniel"];
 
-var groupIsOnlyStudents; // complete this statement
+var groupIsOnlyStudents = group.every (function (student){
+  return (students.some(function(name){
+    return name === student;
+  }))
+})   // complete this statement
+
+
+// Some: returns true if AT LEAST one value returns true
+// [true, false, true] == true, [false, false, false] == false
+
+// Every: returns true if ALL values are true (if any are false, it returns false)
+// [true, true, true] == true, [true, false, true] == false  
 
 if (groupIsOnlyStudents) {
   console.log("The group contains only students");
