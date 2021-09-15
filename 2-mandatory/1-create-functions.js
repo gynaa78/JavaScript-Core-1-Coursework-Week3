@@ -44,9 +44,18 @@ Write a function that:
 - Numbers greater 100 must be replaced with 100.
 */
 
-function formatPercentage() {
+
+function formatPercentage(arrNum) {
+  return arrNum.map((x) => {
+    x = x.toFixed(2);
+    if (x >= 100) {
+      x = 100;
+      return `${x}%`;
+    }
+  });
 }
 
+console.log(formatPercentage ([100,101,100.1, 99, 99.1]));
 /* ======= TESTS - DO NOT MODIFY ===== */
 
 test("first5 function works for more than five elements", () => {
