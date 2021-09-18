@@ -7,37 +7,31 @@
   An array with numbers 1-15 has been provided.
 */
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-
-function formatNumber (number) {
+function formatNumberMap(number) {
   if (number % 5 === 0 && number % 3 === 0) {
     return 'FizzBuzz';
   } else if (number % 5 === 0){
     return 'Buzz';
-  } else if (number % 3 === 0) {
+  } else if  (number % 3 === 0){
     return 'Fizz';
   } else {
-    return number;
-  } 
+     return number;
+  }
 }
-let newArr = arr.map(formatNumber)
-  //let newArr = arr.map (formatNumber).forEach(x => console.log(x));
-  console.log(newArr);
-/* EXPECTED OUTPUT */
 
-/*
-1
-2
-'Fizz'
-4
-'Buzz'
-'Fizz'
-7
-8
-'Fizz'
-'Buzz'
-11
-'Fizz'
-13
-14
-'FizzBuzz'
-*/
+function formatNumberForEach(number) {
+	if (number % 5 === 0 && number % 3 === 0) {
+	  console.log('FizzBuzz');
+	} else if (number % 5 === 0){
+	  console.log('Buzz');
+	} else if  (number % 3 === 0){
+	  console.log('Fizz');
+	} else {
+	   console.log(number);
+	}
+  }
+
+let newArr = arr.map(formatNumberMap).forEach(x => console.log(x));
+arr.forEach(formatNumberForEach);
+
+console.log(newArr);
