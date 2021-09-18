@@ -3,7 +3,8 @@ Write a function that:
 - Accepts an array as a parameter.
 - Returns a new array containing the first five elements of the passed array.
 */
-function first5() {
+function first5(array) {
+  return array.slice(0,5);
 }
 
 /*
@@ -11,7 +12,8 @@ Write a function that:
 - Accepts an array as a parameter.
 - Returns a new array containing the same elements, except sorted.
 */
-function sortArray() {
+function sortArray(array) {
+   return array.map((item) => item).sort();
 }
 
 /*
@@ -25,7 +27,9 @@ Write a function that:
 - Makes the strings all lowercase.
 */
 function tidyUpString() {
-}
+  function tidyUpString(arr) {
+  let newArr = arr.map((item) => item.trim().replace(/\//g, "").toLowerCase());
+  return newArr;
 
 /*
 Write a function that:
@@ -33,7 +37,9 @@ Write a function that:
 - Returns a new array containing the same elements, but without the element at the passed index.
 */
 
-function remove() {
+//function remove() {
+  function remove(array,index) {
+  return array.slice(0, index).concat(array.slice(index + 1, array.length));
 }
 
 /*
@@ -45,18 +51,50 @@ Write a function that:
 */
 
 
-function formatPercentage(arrNum) {
-  return arrNum.map((x) => {
-    x = x.toFixed(2);
-    if (x >= 100) {
-      x = 100;
-      return `${x}%`;
-    }
-  });
+// first attempt
+//function formatPercentage(arrNum) {
+//   return arrNum.map((x) => {
+//     x = x.toFixed(2);
+//     if (x >= 100) {
+//       x = 100;
+//       return `${x}%`);
+//     }
+//   });
+// }
+
+function formatPercentage1(arrNum) {
+
+	return arrNum
+		.map(x => x.toFixed(2))
+		.map(x => {
+
+			if (x >= 100) {
+				return 100;
+			}
+
+			return x;
+		})
+		.map(x => `${x}%`);
 }
+
+// another way
+//function formatPercentage2(arrNum) {
+
+// 	return arrNum.map(x => {
+
+// 		x = x.toFixed(2);
+
+// 		if (x >= 100) {
+// 			x = 100;
+// 		}
+
+// 		return `${x}%`;
+// 	});
+// }
 
 console.log(formatPercentage ([100,101,100.1, 99, 99.1]));
 /* ======= TESTS - DO NOT MODIFY ===== */
+
 
 test("first5 function works for more than five elements", () => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -150,5 +188,5 @@ test("formatPercentage function works", () => {
     "18.1%",
     "100%",
     "0.37%",
-  ]);
+  ]); 
 });
