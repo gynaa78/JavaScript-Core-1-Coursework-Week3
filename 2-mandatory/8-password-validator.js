@@ -22,8 +22,7 @@ Expected Result:
 PasswordValidationResult=  [false, false, false, false, true]
 
 */
-
-function validatePasswords(passwords) {
+//function validatePasswords(passwords) {
   function validatePasswords(passwords) {
     return passwords.map((password, index, str) => {
       if (
@@ -39,7 +38,7 @@ function validatePasswords(passwords) {
         return false;
       }
     });
-  }
+  
 
   function containsPreviousPassword(string, passwords, index) {
     return passwords.indexOf(string) === index;

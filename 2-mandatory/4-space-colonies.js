@@ -15,14 +15,14 @@
   
 */
 
-function getSettlers() {
+//function getSettlers() {
   function getSettlers(arr) {
     let array = arr.filter(
       (name) => name.startsWith("A") && name.endsWith("family")
     );
     return array;
   }
-}
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
