@@ -26,11 +26,12 @@ Write a function that:
 - Removes any forward slashes (/) in the strings.
 - Makes the strings all lowercase.
 */
-function tidyUpString() {
+//function tidyUpString() {
   function tidyUpString(arr) {
   let newArr = arr.map((item) => item.trim().replace(/\//g, "").toLowerCase());
   return newArr;
-
+  }
+//}
 /*
 Write a function that:
 - Takes an array and an index as input.
@@ -62,23 +63,23 @@ Write a function that:
 //   });
 // }
 
-function formatPercentage1(arrNum) {
+// function formatPercentage(arrNum) {
 
-	return arrNum
-		.map(x => x.toFixed(2))
-		.map(x => {
+// 	return arrNum
+// 		.map(x => x.toFixed(2))
+// 		.map(x => {
 
-			if (x >= 100) {
-				return 100;
-			}
+// 			if (x >= 100) {
+// 				return 100;
+// 			}
 
-			return x;
-		})
-		.map(x => `${x}%`);
-}
+// 			return x;
+// 		})
+// 		.map(x => `${x}%`);
+// }
 
 // another way
-//function formatPercentage2(arrNum) {
+// function formatPercentage(arrNum) {
 
 // 	return arrNum.map(x => {
 
@@ -92,7 +93,15 @@ function formatPercentage1(arrNum) {
 // 	});
 // }
 
-console.log(formatPercentage ([100,101,100.1, 99, 99.1]));
+function formatPercentage(arr) {
+  return arr.map((value) => {
+    const cappedValue = Math.min(value, 100);
+    const roundedValue = Math.round(100 * cappedValue) / 100;
+    return `${roundedValue}%`;
+  });
+}
+
+//console.log(formatPercentage ([100,101,100.1, 99, 99.1]));
 /* ======= TESTS - DO NOT MODIFY ===== */
 
 
@@ -188,5 +197,5 @@ test("formatPercentage function works", () => {
     "18.1%",
     "100%",
     "0.37%",
-  ]); 
+  ]);
 });
